@@ -1,127 +1,158 @@
+/* Main content area */
 .main {
-    background-color: #D3D3D3;
+  background-color: #D3D3D3;
 }
 
-/* Side navigation menu */ 
+/* Side navigation menu */
 .sidebar {
-    margin: 0; 
-    padding: 0; 
-    width: 200px; 
-    background-color:#f0f8ff; 
-    position: fixed; 
-    height: 100%; 
-    overflow: auto
-} 
-
-/* Sidebar Sections */ 
-.sidebar a {
-    display: block; 
-    color:black;
-    padding: 16px; 
-    text-decoration: none;
-} 
-
-/* Styling for active section */ 
-.sidebar a.active {
-    background-color:#555; 
-    color:white; 
-} 
-
-/* Styling when hovering over sections */ 
-.sidebar a:hover:not(.active) {
-    background-color: #DDC1A6;
-    color:white;
-} 
-
-/* Hamburger menu */ 
-.hamburger {
-    display: none; 
-    font-size: 30px; 
-    background-color: #555;
-    color:white; 
-    border:none; 
-    padding: 10px 15px;
-    cursor: pointer; 
-    position:fixed; 
-    top: 15px; 
-    left: 15px; 
-    z-index: 1;
+  margin: 0;
+  padding: 0;
+  width: 200px;
+  background-color: #f0f8ff;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
 }
 
-/* Turning sidebar into topbar for screens with a width lesser than 700px */ 
-@media screen and (max-width: 700px) {
-    .sidebar {
-        display: none;
-    } 
-    .hamburger {
-        display: block; 
-    } 
-    .sidebar.show {
-        display: block; 
-        width: 100%; 
-        height: auto; 
-        position: absolute; 
-        top: 60px; 
-        left: 0;
-        padding-top: 16px;
-    }
-} 
+/* Sidebar Sections */
+.sidebar a {
+  display: block;
+  color: black;
+  padding: 16px;
+  text-decoration: none;
+}
 
-/* On screens that are less than 400px, display the bar vertically, instead of horizontally */
-@media screen and (max-width: 400px) {
-    .sidebar a {
-      text-align: center;
-      float: none;
-    }
-  } 
+/* Styling for active section */
+.sidebar a.active {
+  background-color: #555;
+  color: white;
+}
+
+/* Styling when hovering over sections */
+.sidebar a:hover:not(.active) {
+  background-color: #DDC1A6;
+  color: white;
+}
+
+/* Hamburger menu */
+.hamburger {
+  display: none;
+  font-size: 30px;
+  background-color: #555;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  z-index: 2;
+}
+
+/* Blog heading */
+.blog-heading {
+  margin-left: 220px;
+  padding: 20px;
+  position: relative;
+  top: 70px; 
+  font-size: 24px;
+  text-align: left;
+}
 
 /* Container for the search bar */
 .search-container {
-    display: flex;
-    justify-content: flex-end; 
-    padding: 10px; 
-    position: fixed; 
-    right: 0; 
-    top: 15px; 
-    width: 100%;
-    box-sizing: border-box; 
-    z-index: 1; 
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px;
+  position: fixed;
+  right: 0;
+  top: 15px;
+  width: calc(100% - 220px); 
+  box-sizing: border-box;
+  z-index: 1;
 }
 
-/* Styling for the form */ 
+/* Styling for the form */
 form {
-    background-color:#FFFFFF;
-    width: 300px;
-    height: 44px;
-    border-radius: 5px;
-    display: flex;
-    flex-direction: row;
-    align-items: right;
-  } 
+  background-color: #FFFFFF;
+  width: 300px;
+  height: 44px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
 
-/* Styling for the input search box */ 
+/* Styling for the input search box */
 input {
-    all: unset;
-    font: 16px system-ui;
-    color: #000000;
-    height: 100%;
-    width: 100%;
-    padding: 6px 10px;
-  }
+  all: unset;
+  font: 16px system-ui;
+  color: #000000;
+  height: 100%;
+  width: 100%;
+  padding: 6px 10px;
+}
 
-/* Styling for the button */ 
+/* Styling for the button */
 button {
-    all: unset;
-    cursor: pointer;
-    width: 44px;
-    height: 44px;
-  }
+  all: unset;
+  cursor: pointer;
+  width: 44px;
+  height: 44px;
+}
 
-/* Styling for the svg icon*/
-  svg {
-    color: #000000;
-    fill: currentColor;
-    width: 24px;
-    height: 24px;
-    padding: 10px;
+/* Styling for the svg icon */
+svg {
+  color: #000000;
+  fill: currentColor;
+  width: 24px;
+  height: 24px;
+  padding: 10px;
+}
+
+/* Media query for screens with a width lesser than 700px */
+@media screen and (max-width: 700px) {
+  .sidebar {
+      display: none;
   }
+  .hamburger {
+      display: block;
+  }
+  .sidebar.show {
+      display: block;
+      width: 100%;
+      height: auto;
+      position: absolute;
+      top: 60px;
+      left: 0;
+      padding-top: 16px;
+  }
+  .blog-heading {
+      margin-left: 0;
+      text-align: center;
+      position: relative;
+      top: 0px; 
+      margin-bottom: 20px; 
+  }
+  .search-container {
+      justify-content: center;
+      width: 100%;
+      top: 150px; 
+  }
+}
+
+/* Media query for screens with a width less than 400px */
+@media screen and (max-width: 400px) {
+  .sidebar a {
+      text-align: center;
+      float: none;
+  }
+  .blog-heading {
+      top: 70px; 
+      margin-bottom: 30px; 
+  }
+  .search-container {
+      top: 120px; 
+  }
+}
+
