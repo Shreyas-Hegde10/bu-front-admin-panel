@@ -1,3 +1,7 @@
+.main {
+    background-color: #D3D3D3;
+}
+
 /* Side navigation menu */ 
 .sidebar {
     margin: 0; 
@@ -25,18 +29,42 @@
 
 /* Styling when hovering over sections */ 
 .sidebar a:hover:not(.active) {
-    background-color: #555;
+    background-color: #DDC1A6;
     color:white;
 } 
+
+/* Hamburger menu */ 
+.hamburger {
+    display: none; 
+    font-size: 30px; 
+    background-color: #555;
+    color:white; 
+    border:none; 
+    padding: 10px 15px;
+    cursor: pointer; 
+    position:fixed; 
+    top: 15px; 
+    left: 15px; 
+    z-index: 1;
+}
 
 /* Turning sidebar into topbar for screens with a width lesser than 700px */ 
 @media screen and (max-width: 700px) {
     .sidebar {
-        width:100%; 
-        height: auto; 
-        position: relative; 
+        display: none;
     } 
-    .sidebar a{float: left;}
+    .hamburger {
+        display: block; 
+    } 
+    .sidebar.show {
+        display: block; 
+        width: 100%; 
+        height: auto; 
+        position: absolute; 
+        top: 60px; 
+        left: 0;
+        padding-top: 16px;
+    }
 } 
 
 /* On screens that are less than 400px, display the bar vertically, instead of horizontally */
@@ -45,4 +73,55 @@
       text-align: center;
       float: none;
     }
+  } 
+
+/* Container for the search bar */
+.search-container {
+    display: flex;
+    justify-content: flex-end; 
+    padding: 10px; 
+    position: fixed; 
+    right: 0; 
+    top: 15px; 
+    width: 100%;
+    box-sizing: border-box; 
+    z-index: 1; 
+}
+
+/* Styling for the form */ 
+form {
+    background-color:#FFFFFF;
+    width: 300px;
+    height: 44px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: right;
+  } 
+
+/* Styling for the input search box */ 
+input {
+    all: unset;
+    font: 16px system-ui;
+    color: #000000;
+    height: 100%;
+    width: 100%;
+    padding: 6px 10px;
+  }
+
+/* Styling for the button */ 
+button {
+    all: unset;
+    cursor: pointer;
+    width: 44px;
+    height: 44px;
+  }
+
+/* Styling for the svg icon*/
+  svg {
+    color: #000000;
+    fill: currentColor;
+    width: 24px;
+    height: 24px;
+    padding: 10px;
   }
