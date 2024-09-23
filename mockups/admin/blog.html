@@ -28,11 +28,73 @@
     <div class="search-container">
       <form id="form" role="search">
         <input type="search" id="query" placeholder="Search..." aria-label="Search through blog posts">
-        <button>
+        <button id ="search_button">
           <svg viewBox="0 0 1024 1024"><path class="path1" d="M848.471 928l-263.059-263.059c-48.941 36.706-110.118 55.059-177.412 55.059-171.294 0-312-140.706-312-312s140.706-312 312-312c171.294 0 312 140.706 312 312 0 67.294-24.471 128.471-55.059 177.412l263.059 263.059-79.529 79.529zM189.623 408.078c0 121.364 97.091 218.455 218.455 218.455s218.455-97.091 218.455-218.455c0-121.364-103.159-218.455-218.455-218.455-121.364 0-218.455 97.091-218.455 218.455z"></path></svg>
         </button>
       </form>
+    </div> 
+
+    <!--New Page Button-->
+    <div class="center-container">
+      <a class="new-post-button">Add New Post</a>
     </div>
+
+    <!--Table-->
+    <table class="styled-table">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Author</th>
+          <th>Categories</th>
+          <th>Tags</th>
+          <th># of Comments</th>
+          <th>Date Published</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Understanding Quantum Computing</td>
+          <td>Alice Johnson</td>
+          <td>Technology, Science</td>
+          <td>Quantum, Computing, Future</td>
+          <td>12</td>
+          <td>2024-09-15</td>
+        </tr>
+        <tr>
+          <td>The Rise of AI</td>
+          <td>Bob Smith</td>
+          <td>Technology, AI</td>
+          <td>AI, Machine Learning</td>
+          <td>25</td>
+          <td>2024-09-18</td>
+        </tr>
+        <tr>
+          <td>Exploring the Universe</td>
+          <td>Carol Davis</td>
+          <td>Astronomy, Science</td>
+          <td>Space, Exploration</td>
+          <td>8</td>
+          <td>2024-09-20</td>
+        </tr>
+        <tr>
+          <td>Healthy Eating Habits</td>
+          <td>David Wilson</td>
+          <td>Health, Lifestyle</td>
+          <td>Nutrition, Wellness</td>
+          <td>15</td>
+          <td>2024-09-12</td>
+        </tr>
+        <tr>
+          <td>The Future of Renewable Energy</td>
+          <td>Emma Brown</td>
+          <td>Environment, Energy</td>
+          <td>Renewable, Sustainability</td>
+          <td>5</td>
+          <td>2024-09-22</td>
+        </tr>
+      </tbody>
+    </table>
+
     <script src="../script/admin/blog.js"></script>
   </body>
 </html> 

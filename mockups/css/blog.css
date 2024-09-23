@@ -108,6 +108,79 @@ svg {
   width: 24px;
   height: 24px;
   padding: 10px;
+} 
+
+/* Styling for the add new page button*/
+.new-post-button {
+  background-color: #555;
+  color: white;
+  padding: 15px 25px;
+  text-decoration: none;
+  text-align: center;
+  display: inline-block;
+  margin: 0 auto; /* Center horizontally */
+  display: flex;
+  justify-content: center; /* Horizontal centering */
+  align-items: center; /* Vertical centering */
+}
+
+/* Hover effect for the button */
+.new-post-button:hover {
+  background-color: #DDC1A6;
+} 
+
+/* Wrapper to help center the button in the container */
+.center-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 200px;
+  position:relative;
+} 
+
+/* Styling the table */
+.styled-table {
+  border-collapse: collapse;
+  margin: 25px 0px;
+  font-size: 0.9em;
+  font-family: sans-serif;
+  min-width: 400px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  margin-left: 500px;
+  margin-right: auto; 
+  
+}
+
+/*Styling the header*/
+.styled-table thead tr {
+  background-color: #009879;
+  color: #ffffff;
+  text-align: left;
+} 
+
+/*Styling the table cells*/
+.styled-table th,
+.styled-table td {
+    padding: 12px 15px;
+} 
+
+/*Styling table rows*/ 
+.styled-table tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+  border-bottom: 2px solid #009879;
+} 
+
+/*Styling active row*/ 
+.styled-table tbody tr.active-row {
+  font-weight: bold;
+  color: #009879;
 }
 
 /* Media query for screens with a width lesser than 700px */
@@ -138,6 +211,11 @@ svg {
       justify-content: center;
       width: 100%;
       top: 330px; 
+  } 
+  .center-container {
+    justify-content: center;
+    align-items: center;
+    top: 140px; /* Adjust to provide more space between button and other elements */
   }
 }
 
@@ -149,10 +227,14 @@ svg {
   }
   .blog-heading {
       top: 210px; 
-      margin-bottom: 90px; 
   }
   .search-container {
       top: 330px; 
+  } 
+   .center-container {
+    justify-content: center;
+    align-items: center;
+    top: 200px; /* Adjust to provide more space between button and other elements */
   }
 }
 
