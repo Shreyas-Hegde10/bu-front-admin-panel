@@ -131,13 +131,13 @@ svg {
       margin-left: 0;
       text-align: center;
       position: relative;
-      top: 0px; 
-      margin-bottom: 20px; 
+      top: 210px; 
+      margin-bottom: 90px; 
   }
   .search-container {
       justify-content: center;
       width: 100%;
-      top: 150px; 
+      top: 330px; 
   }
 }
 
@@ -148,11 +148,11 @@ svg {
       float: none;
   }
   .blog-heading {
-      top: 70px; 
-      margin-bottom: 30px; 
+      top: 210px; 
+      margin-bottom: 90px; 
   }
   .search-container {
-      top: 120px; 
+      top: 330px; 
   }
 }
 
