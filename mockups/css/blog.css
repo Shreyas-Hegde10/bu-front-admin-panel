@@ -206,7 +206,6 @@ svg {
       margin-left: 0;
       text-align: center;
       margin-top: 230px;
-      margin-bottom: 20px;
       position: relative;
       top: 0;
   }
@@ -215,10 +214,12 @@ svg {
   .search-container {
       justify-content: center;
       width: 100%;
-      padding-top: 330px;
+      padding-top: 0px;
       display: flex;
       flex-direction: column;
       align-items: center;
+      top:auto; 
+      position:relative;
   }
 
   /* Centering the add new post button below the search bar */
