@@ -146,7 +146,7 @@ svg {
   font-family: sans-serif;
   min-width: 400px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-  margin-left: 500px;
+  margin-left: 510px;
   margin-right: auto; 
   
 }
@@ -183,7 +183,7 @@ svg {
   color: #009879;
 }
 
-/* Media query for screens with a width lesser than 700px */
+/* Media query for screens with a width less than 700px */
 @media screen and (max-width: 700px) {
   .sidebar {
       display: none;
@@ -200,24 +200,94 @@ svg {
       left: 0;
       padding-top: 16px;
   }
+
+  /* Centering the blog heading */
   .blog-heading {
       margin-left: 0;
       text-align: center;
+      margin-top: 230px;
+      margin-bottom: 20px;
       position: relative;
-      top: 210px; 
-      margin-bottom: 90px; 
+      top: 0;
   }
+
+  /* Centering and moving the search bar below the title */
   .search-container {
       justify-content: center;
       width: 100%;
-      top: 330px; 
-  } 
+      padding-top: 330px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+  }
+
+  /* Centering the add new post button below the search bar */
   .center-container {
-    justify-content: center;
-    align-items: center;
-    top: 140px; /* Adjust to provide more space between button and other elements */
+      justify-content: center;
+      align-items: center;
+      margin-top: 10px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      padding-left: 5px;
+  }
+
+  /* Ensuring the table is also centered and not too wide */
+  .styled-table {
+      font-size: 0.9em;
+      margin-left: auto;
+      margin-right: auto;
+      width: 90%; /* Adjusted for smaller screens */
+      padding-top: 300px;
+  }
+
+  .styled-table thead {
+      display: none; /* Hide the headers on small screens */
+  }
+
+  /* Switching background color for alternating rows */
+  .styled-table tr:nth-child(even) td {
+      background-color: #009879;
+  }
+
+  /* Making each cell take the full width */
+  .styled-table td {
+      display: block;
+      text-align: center;
+  }
+
+  /* Adding column names for each cell */
+  .styled-table tbody td:nth-child(1):before {
+    content: 'Title:';
+  }
+
+  .styled-table tbody td:nth-child(2):before {
+    content: 'Author:';
+  }
+
+  .styled-table tbody td:nth-child(3):before {
+    content: 'Categories:';
+  }
+
+  .styled-table tbody td:nth-child(4):before {
+    content: 'Tags:';
+  }
+
+  .styled-table tbody td:nth-child(5):before {
+    content: '# of Comments:';
+  }
+
+  .styled-table tbody td:nth-child(6):before {
+    content: 'Date Published:';
+  }
+
+  .styled-table tbody td:before {
+    display: block;
+    font-weight: bold;
   }
 }
+
 
 /* Media query for screens with a width less than 400px */
 @media screen and (max-width: 400px) {
@@ -225,16 +295,20 @@ svg {
       text-align: center;
       float: none;
   }
+
   .blog-heading {
-      top: 210px; 
+      margin-top: 100px; 
   }
+
   .search-container {
-      top: 330px; 
-  } 
-   .center-container {
-    justify-content: center;
-    align-items: center;
-    top: 200px; /* Adjust to provide more space between button and other elements */
+      margin-bottom: 20px;
+  }
+
+  .center-container {
+      margin-bottom: 20px;
+  }
+
+  .styled-table {
+      font-size: 0.7em;
   }
 }
-
