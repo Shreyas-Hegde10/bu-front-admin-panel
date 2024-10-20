@@ -141,13 +141,14 @@ svg {
 /* Styling the table */
 .styled-table {
   border-collapse: collapse;
-  margin: 25px 0px;
+  margin: 35px 0px;
   font-size: 0.9em;
   font-family: sans-serif;
-  min-width: 400px;
+  min-width: 600px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
   margin-left: 510px;
   margin-right: auto; 
+  table-layout: auto;
   
 }
 
@@ -162,6 +163,7 @@ svg {
 .styled-table th,
 .styled-table td {
     padding: 12px 15px;
+    border: 1px solid #ddd;
 } 
 
 /*Styling table rows*/ 
@@ -181,6 +183,10 @@ svg {
 .styled-table tbody tr.active-row {
   font-weight: bold;
   color: #009879;
+} 
+
+.styled-table td.icon{
+  text-align:center;
 }
 
 /* Media query for screens with a width less than 700px */
@@ -254,9 +260,11 @@ svg {
 
   /* Making each cell take the full width */
   .styled-table td {
-      display: block;
-      text-align: center;
-  }
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    text-align: left;
+  }  
 
   /* Adding column names for each cell */
   .styled-table tbody td:nth-child(1):before {
@@ -281,7 +289,14 @@ svg {
 
   .styled-table tbody td:nth-child(6):before {
     content: 'Date Published:';
+  } 
+  .styled-table tbody td:nth-child(7):before {
+    content: 'Edit:';
+  } 
+  .styled-table tbody td:nth-child(8):before {
+    content: 'Delete:';
   }
+
 
   .styled-table tbody td:before {
     display: block;
