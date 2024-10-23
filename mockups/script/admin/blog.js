@@ -74,7 +74,14 @@ function editTable() {
         const deleteButton = document.createElement('button'); 
         deleteButton.innerHTML = '<i class="fa-solid fa-trash"></i>'; 
         deleteCell.appendChild(deleteButton);
-        row.appendChild(deleteCell); 
+        row.appendChild(deleteCell);  
+
+        const viewCell = document.createElement('td'); 
+        viewCell.classList.add('icon'); 
+        const viewButton = document.createElement('button'); 
+        viewButton.innerHTML = '<i class="fa-solid fa-magnifying-glass"></i>';  
+        viewCell.appendChild(viewButton); 
+        row.appendChild(viewCell);
 
         tableBody.appendChild(row);
     })

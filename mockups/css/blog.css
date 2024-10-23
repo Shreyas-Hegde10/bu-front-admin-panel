@@ -295,7 +295,10 @@ svg {
   } 
   .styled-table tbody td:nth-child(8):before {
     content: 'Delete:';
-  }
+  } 
+  .styled-table tbody td:nth-child(9):before {
+    content: 'View:';
+  } 
 
 
   .styled-table tbody td:before {
