@@ -11,7 +11,8 @@ const tableData = [
         categories: "Technology, Science",
         tags: "Quantum, Computing, Future",
         comments: "12",
-        datePublished: "2024-09-15"
+        datePublished: "2024-09-15",
+        link: "https://www.google.com"
     },
     {
         title: "The Rise of AI",
@@ -19,7 +20,8 @@ const tableData = [
         categories: "Technology, AI",
         tags: "AI, Machine Learning",
         comments: "25",
-        datePublished: "2024-09-18"
+        datePublished: "2024-09-18",
+        link: "https://www.youtube.com/"
     },
     {
         title: "Exploring the Universe",
@@ -27,7 +29,8 @@ const tableData = [
         categories: "Astronomy, Science",
         tags: "Space, Exploration",
         comments: "8",
-        datePublished: "2024-09-20"
+        datePublished: "2024-09-20",
+        link: "https://github.com/"
     },
     {
         title: "Healthy Eating Habits",
@@ -35,7 +38,8 @@ const tableData = [
         categories: "Health, Lifestyle",
         tags: "Nutrition, Wellness",
         comments: "15",
-        datePublished: "2024-09-12"
+        datePublished: "2024-09-12",
+        link: "https://building-u.com/"
     },
     {
         title: "The Future of Renewable Energy",
@@ -43,14 +47,15 @@ const tableData = [
         categories: "Environment, Energy",
         tags: "Renewable, Sustainability",
         comments: "5",
-        datePublished: "2024-09-22"
+        datePublished: "2024-09-22",
+        link: "https://www.instagram.com/"
     }
-]; 
+];
 
 function editTable() {
     const tableBody = document.querySelector('.styled-table tbody');
     
-    tableData.forEach((item) =>{
+    tableData.forEach((item,index) =>{
         const row = document.createElement('tr'); 
 
         row.innerHTML= `
@@ -79,12 +84,20 @@ function editTable() {
         const viewCell = document.createElement('td'); 
         viewCell.classList.add('icon'); 
         const viewButton = document.createElement('button'); 
-        viewButton.innerHTML = '<i class="fa-solid fa-magnifying-glass"></i>';  
+        viewButton.innerHTML = '<i class="fa-solid fa-magnifying-glass"></i>'; 
+        viewButton.onclick = function() {
+            openLink(index);
+        }  
         viewCell.appendChild(viewButton); 
         row.appendChild(viewCell);
 
         tableBody.appendChild(row);
     })
 } 
+
+function openLink(index){
+    const url = tableData[index].link; 
+    window.open(url, "_blank");
+}
 
 editTable();
