@@ -116,7 +116,8 @@ function openDeleteModal(index){
     var blog = tableData[index]; 
     var modal = document.getElementById("deleteModal"); 
     var span = document.getElementById("closeBtn1")  
-    modal.style.display = 'block'; 
+    modal.style.display = 'block';  
+    modal.style.animation = "slide-in 500ms ease-out forwards"
 
     var confirmButton = document.getElementById("confirmDelete"); 
     confirmButton.onclick = function () {
@@ -141,7 +142,7 @@ function openDeleteModal(index){
 }
 
 function closeModal() {
-    var modal = document.getElementById("deleteModal");  
+    var modal = document.getElementById("deleteModal"); 
     modal.style.display="none";
 } 
 
