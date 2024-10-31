@@ -187,7 +187,76 @@ svg {
 
 .styled-table td.icon{
   text-align:center;
+} 
+
+.delete-modal{
+  display:none; 
+  position: fixed; 
+  z-index: 1; 
+  padding-top:100px; 
+  left:0; 
+  top:0; 
+  width:100%; 
+  height:100%;
+  background-color: #00000066 
+
 }
+
+.delete-modal-content{
+  background-color: #fefefe; 
+  margin:auto; 
+  padding:20px; 
+  border: 1px solid #888; 
+  width: 30%; 
+  text-align: center; 
+  align-items: center;
+  justify-content: center;
+
+} 
+
+.close{
+  color:#aaaaaa; 
+  float:right;  
+  font-size: 28px;
+  font-weight: bold;
+} 
+
+.close:hover, 
+.close:focus{
+  color:#000; 
+  text-decoration:none; 
+  cursor: pointer; 
+} 
+
+.modal-buttons{
+  display:flex; 
+  justify-content: center;
+  gap: 20px; 
+  padding-top: 20px;
+} 
+
+.modal-buttons button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+} 
+
+.modal-buttons button:hover{
+  border-radius: 50px;
+  transition: all 0.3s ease 0s;
+}
+
+#confirmDelete {
+  background-color: #00b300; 
+} 
+
+#cancelDelete {
+  background-color:#ff0000;
+} 
+
+
 
 /* Media query for screens with a width less than 700px */
 @media screen and (max-width: 700px) {

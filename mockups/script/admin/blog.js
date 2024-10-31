@@ -4,6 +4,7 @@ function toggleSidebar() {
     sidebar.classList.toggle('show');
 } 
 
+//Table data manipulation
 const tableData = [
     {
         title: "Understanding Quantum Computing",
@@ -53,7 +54,9 @@ const tableData = [
 ];
 
 function editTable() {
-    const tableBody = document.querySelector('.styled-table tbody');
+    const tableBody = document.querySelector('.styled-table tbody'); 
+
+    tableBody.innerHTML = '';
     
     tableData.forEach((item,index) =>{
         const row = document.createElement('tr'); 
@@ -78,6 +81,11 @@ function editTable() {
         deleteCell.classList.add('icon'); 
         const deleteButton = document.createElement('button'); 
         deleteButton.innerHTML = '<i class="fa-solid fa-trash"></i>'; 
+
+        deleteButton.onclick = function(){
+            openDeleteModal(index);
+        };
+
         deleteCell.appendChild(deleteButton);
         row.appendChild(deleteCell);  
 
@@ -85,9 +93,11 @@ function editTable() {
         viewCell.classList.add('icon'); 
         const viewButton = document.createElement('button'); 
         viewButton.innerHTML = '<i class="fa-solid fa-magnifying-glass"></i>'; 
+
         viewButton.onclick = function() {
             openLink(index);
         }  
+
         viewCell.appendChild(viewButton); 
         row.appendChild(viewCell);
 
@@ -98,6 +108,46 @@ function editTable() {
 function openLink(index){
     const url = tableData[index].link; 
     window.open(url, "_blank");
+}
+
+
+// Modals 
+function openDeleteModal(index){
+    var blog = tableData[index]; 
+    var modal = document.getElementById("deleteModal"); 
+    var span = document.getElementById("closeBtn1")  
+    modal.style.display = 'block'; 
+
+    var confirmButton = document.getElementById("confirmDelete"); 
+    confirmButton.onclick = function () {
+        deleteBlog(index);
+        closeModal();
+    } 
+
+    var cancelButton = document.getElementById("cancelDelete")
+    cancelButton.onclick = function () {
+        closeModal();
+    } 
+
+    span.onclick = function(){
+        closeModal()
+    }; 
+
+    window.onclick = function(event){
+        if(event.target == modal) {
+            closeModal();
+        }
+    }
+}
+
+function closeModal() {
+    var modal = document.getElementById("deleteModal");  
+    modal.style.display="none";
+} 
+
+function deleteBlog(index) {
+    tableData.splice(index,1); 
+    editTable();
 }
 
 editTable();
