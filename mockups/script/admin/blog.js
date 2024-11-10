@@ -141,7 +141,13 @@ function openDeleteModal(index){
         if(event.target == modal) {
             closeModal(modal);
         }
-    }
+    } 
+
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+          closeModal(modal);
+        }
+      })
 } 
 
 function openAddModal() {
@@ -172,6 +178,12 @@ function openAddModal() {
             closeModal(modal);
         }
     }
+
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+          closeModal(modal);
+        }
+      })
 } 
 
 function openEditModal(index){
@@ -188,7 +200,13 @@ function openEditModal(index){
         if(event.target == modal) {
             closeModal(modal);
         }
-    }
+    } 
+
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+          closeModal(modal);
+        }
+      })
 
 }
 
