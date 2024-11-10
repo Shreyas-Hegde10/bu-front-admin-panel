@@ -9,7 +9,7 @@ const tableData = [
     {
         title: "Understanding Quantum Computing",
         author: "Alice Johnson",
-        categories: "Technology, Science",
+        categories: "Technology",
         tags: "Quantum, Computing, Future",
         comments: "12",
         datePublished: "2024-09-15",
@@ -18,7 +18,7 @@ const tableData = [
     {
         title: "The Rise of AI",
         author: "Bob Smith",
-        categories: "Technology, AI",
+        categories: "Technology",
         tags: "AI, Machine Learning",
         comments: "25",
         datePublished: "2024-09-18",
@@ -27,7 +27,7 @@ const tableData = [
     {
         title: "Exploring the Universe",
         author: "Carol Davis",
-        categories: "Astronomy, Science",
+        categories: "Astronomy",
         tags: "Space, Exploration",
         comments: "8",
         datePublished: "2024-09-20",
@@ -36,7 +36,7 @@ const tableData = [
     {
         title: "Healthy Eating Habits",
         author: "David Wilson",
-        categories: "Health, Lifestyle",
+        categories: "Health",
         tags: "Nutrition, Wellness",
         comments: "15",
         datePublished: "2024-09-12",
@@ -45,7 +45,7 @@ const tableData = [
     {
         title: "The Future of Renewable Energy",
         author: "Emma Brown",
-        categories: "Environment, Energy",
+        categories: "Environment",
         tags: "Renewable, Sustainability",
         comments: "5",
         datePublished: "2024-09-22",
@@ -75,7 +75,11 @@ function editTable() {
         const editButton = document.createElement('button'); 
         editButton.innerHTML = '<i class="fa-solid fa-pen-to-square"></i>';  
         editCell.appendChild(editButton); 
-        row.appendChild(editCell);
+        row.appendChild(editCell); 
+        
+        editButton.onclick = function(){
+            openEditModal(index);
+        }
         
         const deleteCell = document.createElement('td'); 
         deleteCell.classList.add('icon'); 
@@ -113,41 +117,104 @@ function openLink(index){
 
 // Modals 
 function openDeleteModal(index){
-    var blog = tableData[index]; 
     var modal = document.getElementById("deleteModal"); 
-    var span = document.getElementById("closeBtn1")  
+    var span = document.getElementById("closeBtn1");
     modal.style.display = 'block';  
     modal.style.animation = "slide-in 500ms ease-out forwards"
 
     var confirmButton = document.getElementById("confirmDelete"); 
     confirmButton.onclick = function () {
         deleteBlog(index);
-        closeModal();
+        closeModal(modal);
     } 
 
     var cancelButton = document.getElementById("cancelDelete")
     cancelButton.onclick = function () {
-        closeModal();
+        closeModal(modal);
     } 
 
     span.onclick = function(){
-        closeModal()
+        closeModal(modal)
     }; 
 
     window.onclick = function(event){
         if(event.target == modal) {
-            closeModal();
+            closeModal(modal);
         }
     }
+} 
+
+function openAddModal() {
+    var modal = document.getElementById("addModal")
+    var span = document.getElementById("closeBtn2")
+    var title = document.getElementById("title").value; 
+    var author = document.getElementById("author").value; 
+    var category = document.getElementById("category").value; 
+    var tags = document.getElementById("tags").value; 
+    var comments = document.getElementById("comments").value;
+    var date = document.getElementById("date").value; 
+    modal.style.display = 'block'; 
+    modal.style.animation = "slide-in 500ms ease-out forwards" 
+
+    var confirmButton = document.getElementById("confirmButton") 
+
+    confirmButton.onclick = function(){
+        addBlog(title,author,category,tags,comments,date);
+        closeModal(modal); 
+    }
+
+    span.onclick = function(){
+        closeModal(modal)
+    } 
+
+    window.onclick = function(event){
+        if(event.target == modal) {
+            closeModal(modal);
+        }
+    }
+} 
+
+function openEditModal(index){
+    var modal = document.getElementById("editModal"); 
+    var span = document.getElementById("closeBtn3"); 
+    modal.style.display = 'block'; 
+    modal.style.animation = "slide-in 500ms ease-out forwards" 
+
+    span.onclick = function(){
+        closeModal(modal)
+    } 
+
+    window.onclick = function(event){
+        if(event.target == modal) {
+            closeModal(modal);
+        }
+    }
+
 }
 
-function closeModal() {
-    var modal = document.getElementById("deleteModal"); 
+function closeModal(modal) {
     modal.style.display="none";
 } 
 
 function deleteBlog(index) {
     tableData.splice(index,1); 
+    editTable();
+} 
+
+function addBlog(title, author, categories, tags, comments, datePublished) {
+    const link = "https://example.com"; // Placeholder link for new entries
+
+    if (title && author && categories && tags && comments && datePublished) {
+        tableData.push({
+            title: title,
+            author: author,
+            categories: categories,
+            tags: tags,
+            comments: comments,
+            datePublished: datePublished,
+            link: link
+        });
+    } 
     editTable();
 }
 
