@@ -396,7 +396,7 @@ svg {
   margin: auto;
   padding: 20px;
   border: 1px solid #888;
-  height: 68%;
+  height: 70%;
   width: 20%;
   text-align: center;
   border-radius: 8px;
@@ -426,6 +426,28 @@ svg {
   border-radius: 4px;
   box-sizing: border-box; 
 } 
+
+.edit-modal-content input[type=url], 
+.edit-modal-content textarea{
+  width: 380px;
+  padding: 12px;
+  margin: 0 auto;
+  display: block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box; 
+} 
+
+.edit-modal-content input[type=date], 
+.edit-modal-content textarea{
+  width: 380px;
+  padding: 12px;
+  margin: 0 auto;
+  display: block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box; 
+}
 
 
 .edit-modal-content input[type=submit] {

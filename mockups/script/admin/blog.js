@@ -202,6 +202,30 @@ function openEditModal(index) {
     modal.style.display = 'block'; 
     modal.style.animation = "slide-in 500ms ease-out forwards"; 
 
+    document.getElementById("editTitle").value = tableData[index].title;
+    document.getElementById("editAuthor").value = tableData[index].author;
+    document.getElementById("editCategory").value = tableData[index].categories;
+    document.getElementById("editTags").value = tableData[index].tags;
+    document.getElementById("editComments").value = tableData[index].comments;
+    document.getElementById("editDate").value = tableData[index].datePublished; 
+    document.getElementById("editLink").value = tableData[index].link; 
+    
+    var form = document.getElementById("editBlogForm") 
+    form.onsubmit = function(event){
+        event.preventDefault(); 
+
+        var title = document.getElementById("editTitle").value;
+        var author = document.getElementById("editAuthor").value;
+        var category = document.getElementById("editCategory").value;
+        var tags = document.getElementById("editTags").value;
+        var comments = document.getElementById("editComments").value;
+        var date = document.getElementById("editDate").value; 
+        var link = document.getElementById("editLink").value; 
+
+        editBlog(index,title,author,category,tags,comments,date,link);
+        closeModal(modal);
+    }
+
     span.onclick = function() {
         closeModal(modal);
     };
@@ -246,6 +270,20 @@ function addBlog(title, author, categories, tags, comments, datePublished,link) 
     } else {
         console.log("Missing fields, blog entry not added");  
     }
+
+    editTable();
+} 
+
+function editBlog(index,title,author,categories,tags,comments,datePublished,link) {
+    const blog = tableData[index]
+
+    blog.title = title || blog.title;  
+    blog.author = author || blog.author; 
+    blog.categories = categories|| blog.categories;  
+    blog.tags = tags || blog.tags;
+    blog.comments = comments || blog.title;  
+    blog.datePublished = datePublished || blog.datePublished; 
+    blog.link = link || blog.link 
 
     editTable();
 }
