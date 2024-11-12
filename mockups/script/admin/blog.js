@@ -4,7 +4,7 @@ function toggleSidebar() {
     sidebar.classList.toggle('show');
 } 
 
-//Table data manipulation
+// Table data manipulation
 const tableData = [
     {
         title: "Understanding Quantum Computing",
@@ -56,9 +56,14 @@ const tableData = [
 function editTable() {
     const tableBody = document.querySelector('.styled-table tbody'); 
 
-    tableBody.innerHTML = '';
+    if (!tableBody) {
+        console.log("Table body not found.");  // Debugging: If the table body is missing
+        return;
+    }
+
+    tableBody.innerHTML = ''; 
     
-    tableData.forEach((item,index) =>{
+    tableData.forEach((item, index) => {
         const row = document.createElement('tr'); 
 
         row.innerHTML= `
@@ -68,7 +73,7 @@ function editTable() {
             <td data-label="Tags">${item.tags}</td>
             <td data-label="# of Comments">${item.comments}</td>
             <td data-label="Date Published">${item.datePublished}</td>
-        `
+        `;
 
         const editCell = document.createElement('td'); 
         editCell.classList.add('icon');  
@@ -76,17 +81,17 @@ function editTable() {
         editButton.innerHTML = '<i class="fa-solid fa-pen-to-square"></i>';  
         editCell.appendChild(editButton); 
         row.appendChild(editCell); 
-        
-        editButton.onclick = function(){
+
+        editButton.onclick = function() {
             openEditModal(index);
-        }
-        
+        };
+
         const deleteCell = document.createElement('td'); 
         deleteCell.classList.add('icon'); 
         const deleteButton = document.createElement('button'); 
         deleteButton.innerHTML = '<i class="fa-solid fa-trash"></i>'; 
 
-        deleteButton.onclick = function(){
+        deleteButton.onclick = function() {
             openDeleteModal(index);
         };
 
@@ -100,127 +105,131 @@ function editTable() {
 
         viewButton.onclick = function() {
             openLink(index);
-        }  
+        };  
 
         viewCell.appendChild(viewButton); 
         row.appendChild(viewCell);
 
         tableBody.appendChild(row);
-    })
+    });
+
+    console.log("Table updated. Total rows:", tableData.length);  // Debugging: Log table update
 } 
 
-function openLink(index){
+function openLink(index) {
     const url = tableData[index].link; 
     window.open(url, "_blank");
 }
 
-
 // Modals 
-function openDeleteModal(index){
+function openDeleteModal(index) {
     var modal = document.getElementById("deleteModal"); 
     var span = document.getElementById("closeBtn1");
     modal.style.display = 'block';  
-    modal.style.animation = "slide-in 500ms ease-out forwards"
+    modal.style.animation = "slide-in 500ms ease-out forwards";
 
     var confirmButton = document.getElementById("confirmDelete"); 
     confirmButton.onclick = function () {
         deleteBlog(index);
         closeModal(modal);
-    } 
+    };
 
-    var cancelButton = document.getElementById("cancelDelete")
+    var cancelButton = document.getElementById("cancelDelete");
     cancelButton.onclick = function () {
         closeModal(modal);
-    } 
+    };
 
-    span.onclick = function(){
-        closeModal(modal)
+    span.onclick = function() {
+        closeModal(modal);
     }; 
 
-    window.onclick = function(event){
+    window.onclick = function(event) {
         if(event.target == modal) {
             closeModal(modal);
         }
-    } 
+    };
 
     document.addEventListener('keydown', (event) => {
         if (event.key === 'Escape') {
-          closeModal(modal);
+            closeModal(modal);
         }
-      })
+    });
 } 
 
 function openAddModal() {
-    var modal = document.getElementById("addModal")
-    var span = document.getElementById("closeBtn2")
-    var title = document.getElementById("title").value; 
-    var author = document.getElementById("author").value; 
-    var category = document.getElementById("category").value; 
-    var tags = document.getElementById("tags").value; 
-    var comments = document.getElementById("comments").value;
-    var date = document.getElementById("date").value; 
+    var modal = document.getElementById("addModal");
+    var span = document.getElementById("closeBtn2");
     modal.style.display = 'block'; 
-    modal.style.animation = "slide-in 500ms ease-out forwards" 
+    modal.style.animation = "slide-in 500ms ease-out forwards";
 
-    var confirmButton = document.getElementById("confirmButton") 
+    var form = document.getElementById("addBlogForm");
 
-    confirmButton.onclick = function(){
-        addBlog(title,author,category,tags,comments,date);
-        closeModal(modal); 
-    }
+    form.onsubmit = function(event) {
+        event.preventDefault();
 
-    span.onclick = function(){
-        closeModal(modal)
-    } 
+        var title = document.getElementById("title").value;
+        var author = document.getElementById("author").value;
+        var category = document.getElementById("category").value;
+        var tags = document.getElementById("tags").value;
+        var comments = document.getElementById("comments").value;
+        var date = document.getElementById("date").value; 
+        var link = document.getElementById("link").value;
 
-    window.onclick = function(event){
+        addBlog(title, author, category, tags, comments, date,link);
+        closeModal(modal);
+    };
+
+    span.onclick = function() {
+        closeModal(modal);
+    };
+
+    window.onclick = function(event) {
         if(event.target == modal) {
             closeModal(modal);
         }
-    }
+    };
 
     document.addEventListener('keydown', (event) => {
         if (event.key === 'Escape') {
-          closeModal(modal);
+            closeModal(modal);
         }
-      })
-} 
+    });
+}
 
-function openEditModal(index){
+function openEditModal(index) {
     var modal = document.getElementById("editModal"); 
     var span = document.getElementById("closeBtn3"); 
     modal.style.display = 'block'; 
-    modal.style.animation = "slide-in 500ms ease-out forwards" 
+    modal.style.animation = "slide-in 500ms ease-out forwards"; 
 
-    span.onclick = function(){
-        closeModal(modal)
-    } 
+    span.onclick = function() {
+        closeModal(modal);
+    };
 
-    window.onclick = function(event){
+    window.onclick = function(event) {
         if(event.target == modal) {
             closeModal(modal);
         }
-    } 
+    };
 
     document.addEventListener('keydown', (event) => {
         if (event.key === 'Escape') {
-          closeModal(modal);
+            closeModal(modal);
         }
-      })
-
+    });
 }
 
 function closeModal(modal) {
-    modal.style.display="none";
-} 
+    modal.style.display = "none";
+}
 
 function deleteBlog(index) {
-    tableData.splice(index,1); 
+    tableData.splice(index, 1);
     editTable();
-} 
+}
 
-function addBlog(title, author, categories, tags, comments, datePublished) {
-    const link = "https://example.com"; // Placeholder link for new entries
+function addBlog(title, author, categories, tags, comments, datePublished,link) {
+    
 
     if (title && author && categories && tags && comments && datePublished) {
         tableData.push({
@@ -232,7 +241,12 @@ function addBlog(title, author, categories, tags, comments, datePublished) {
             datePublished: datePublished,
             link: link
         });
-    } 
+
+        console.log("New blog added:", title);  
+    } else {
+        console.log("Missing fields, blog entry not added");  
+    }
+
     editTable();
 }
 

@@ -77,7 +77,7 @@
     <div id="addModal" class="add-modal">
       <div class="add-modal-content">
         <span id="closeBtn2" class="closeBtn3">&times;</span> 
-        <form id="blogForm">
+        <form id="addBlogForm">
           <div class="container"> 
             <h2>Add Blog Entry</h2>
             <label for="title">Title</label>
@@ -96,7 +96,10 @@
             <input type="text" id="comments" name="comments" placeholder="Enter the # of comments...">
 
             <label for="date">Date Published</label>
-            <input type="text" id="date" name="date" placeholder="Enter date in yy-mm-dd format..."> 
+            <input type="date" id="date" name="date" placeholder="Enter date in yy-mm-dd format...">  
+
+            <label for="link">Link</label>
+            <input type="url" id = "link" name="link" placeholder="Enter the URL for the blog entry...">
 
             <input type="submit" value="Add Entry" id="confirmButton">
           </div>
